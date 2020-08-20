@@ -19,4 +19,10 @@ class WolvesController extends Controller
     {
         return Wolf::create($request->input());
     }
+
+    //TODO: authorization
+    public function destroy(Wolf $wolf): bool
+    {
+        return $wolf->delete();
+    }
 }

@@ -14,10 +14,10 @@ class DestroyTest extends TestCase
     /** @test **/
     public function itRemovesWolves()
     {
-        $this->withoutExceptionHandling();
+        factory(Wolf::class)->times(2)->create();
 
         $this->actingAs($this->user())->delete('/api/wolves/1')
-            ->assertStatus(201);
+            ->assertStatus(200);
 
         $this->assertEquals(1, Wolf::count());
     }

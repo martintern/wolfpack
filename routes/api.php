@@ -23,4 +23,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::middleware('auth')->namespace('Api')->group(function () {
     Route::get('/wolves', 'WolvesController@index');
     Route::post('/wolves', 'WolvesController@store');
+    Route::delete('/wolves/{wolf}', 'WolvesController@destroy');
 });
