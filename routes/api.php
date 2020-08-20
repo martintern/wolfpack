@@ -21,8 +21,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //TODO: auth:api
 Route::middleware('auth')->namespace('Api')->group(function () {
-    Route::get('/wolves', 'WolvesController@index');
-    Route::post('/wolves', 'WolvesController@store');
-    Route::put('/wolves/{wolf}', 'WolvesController@update');
-    Route::delete('/wolves/{wolf}', 'WolvesController@destroy');
+    Route::post('/packs', 'PackController@store');
+    Route::get('/wolves', 'WolfController@index');
+    Route::post('/wolves', 'WolfController@store');
+    Route::put('/wolves/{wolf}', 'WolfController@update');
+    Route::delete('/wolves/{wolf}', 'WolfController@destroy');
 });

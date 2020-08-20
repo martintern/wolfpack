@@ -8,7 +8,7 @@ use App\Http\Requests\Wolves\UpdateRequest;
 use App\Models\Wolf;
 use Illuminate\Database\Eloquent\Collection;
 
-class WolvesController extends Controller
+class WolfController extends Controller
 {
     //TODO: filter information to only include basic and not location info
     public function index(): Collection
