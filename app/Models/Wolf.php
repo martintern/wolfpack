@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Wolf extends Model
 {
@@ -25,4 +26,9 @@ class Wolf extends Model
     protected $fillable = [
         'name', 'gender', 'birthdate', 'location', 'pack_id'
     ];
+
+    public function pack(): BelongsTo
+    {
+        return $this->BelongsTo(Pack::class);
+    }
 }

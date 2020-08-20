@@ -23,6 +23,20 @@ class PackTest extends TestCase
         ])->assertStatus(200);
 
         $this->assertEquals($wolf->fresh(), $pack->wolves()->first());
+        $this->assertEquals($pack->fresh(), $wolf->fresh()->pack);
+    }
+
+    /** @test **/
+    public function itValidatesPackId()
+    {
+        $wolf = factory(Wolf::class)->create(['id' => 1]);
+        $pack = factory(Pack::class)->create(['id' => 1]);
+
+        $this->actingAs($this->user())->put('api/wolves/1', [
+            'pack_id' => 2
+        ])->assertStatus(302);
+
+        $this->assertNull($wolf->pack);
     }
 
     /** @test */
