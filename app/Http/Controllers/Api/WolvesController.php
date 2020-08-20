@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class WolvesController extends Controller
 {
+    //TODO: filter information
     public function index(): Collection
     {
         return Wolf::all();
@@ -24,5 +25,11 @@ class WolvesController extends Controller
     public function destroy(Wolf $wolf): bool
     {
         return $wolf->delete();
+    }
+
+    //TODO: validation
+    public function update(Request $request, Wolf $wolf): bool
+    {
+        return $wolf->update($request->input());
     }
 }
