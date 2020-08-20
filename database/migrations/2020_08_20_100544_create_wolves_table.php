@@ -15,6 +15,9 @@ class CreateWolvesTable extends Migration
     {
         Schema::create('wolves', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->string('gender');
+            $table->string('birthdate');
             $table->timestamps();
         });
     }
