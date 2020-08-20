@@ -24,4 +24,17 @@ class PackTest extends TestCase
 
         $this->assertEquals($wolf->fresh(), $pack->wolves()->first());
     }
+
+    /** @test */
+    public function itRemovesWolfFromPack()
+    {
+        $pack = factory(Pack::class)->create(['id' => 1]);
+        factory(Wolf::class)->times(2)->create(['pack_id' => 1]);
+
+        $this->actingAs($this->user())->put('api/wolves/1', [
+            'pack_id' => null
+        ])->assertStatus(200);
+
+        $this->assertEquals([2], $pack->wolves()->pluck('id')->toArray());
+    }
 }
