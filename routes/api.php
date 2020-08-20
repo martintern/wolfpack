@@ -21,6 +21,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 //TODO: auth:api
 Route::middleware('auth')->namespace('Api')->group(function () {
+    Route::get('/packs', 'PackController@index');
     Route::post('/packs', 'PackController@store');
     Route::get('/wolves', 'WolfController@index');
     Route::post('/wolves', 'WolfController@store');
