@@ -1,0 +1,26 @@
+version: '2'
+services:
+  app:
+    image: martintern/app:0.1.0
+    volumes:
+     - .:/var/www/html
+    networks:
+     - net
+  node:
+    image: martintern/node:0.1.0
+    volumes:
+     - .:/var/www/html
+    networks:
+     - net
+  mysql:
+    image: mariadb:10.1.44
+    volumes:
+     - mysqldata:/var/lib/mysql
+    networks:
+     - net
+  redis:
+    image: redis:alpine
+    volumes:
+     - redisdata:/data
+    networks:
+     - net
