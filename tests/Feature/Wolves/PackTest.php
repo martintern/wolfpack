@@ -1,0 +1,27 @@
+<?php
+
+namespace Tests\Feature\Wolves;
+
+use App\Models\Pack;
+use App\Models\Wolf;
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Foundation\Testing\WithFaker;
+use Tests\TestCase;
+
+class PackTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /** @test **/
+    public function itAssignsWolfToPack()
+    {
+        $wolf = factory(Wolf::class)->create(['id' => 1]);
+        $pack = factory(Pack::class)->create(['id' => 1]);
+
+        $this->actingAs($this->user())->put('api/wolves/1', [
+            'pack_id' => 1
+        ])->assertStatus(200);
+
+        $this->assertEquals($wolf->fresh(), $pack->wolves()->first());
+    }
+}

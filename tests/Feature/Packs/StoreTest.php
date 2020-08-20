@@ -14,7 +14,6 @@ class StoreTest extends TestCase
     /** @test **/
     public function itAddsNewPacks()
     {
-        $this->withoutExceptionHandling();
         $this->actingAs($this->user())->post('/api/packs', [
             'name' => 'The Wanderers'
         ])->assertStatus(201);

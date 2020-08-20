@@ -30,7 +30,8 @@ class UpdateRequest extends FormRequest
             'name' => 'sometimes|string',
             'gender' => ['sometimes', Rule::in(Wolf::GENDERS)],
             'birthdate' => 'sometimes|date',
-            'location' => ['sometimes', new LocationCoordinates]
+            'location' => ['sometimes', new LocationCoordinates],
+            'pack_id' => 'sometimes|nullable|exists:packs,id'
         ];
     }
 }

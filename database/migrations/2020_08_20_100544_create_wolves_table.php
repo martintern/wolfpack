@@ -19,6 +19,8 @@ class CreateWolvesTable extends Migration
             $table->string('gender');
             $table->string('birthdate');
             $table->point('location');
+            $table->unsignedBigInteger('pack_id')->nullable();
+            $table->foreign('pack_id')->references('id')->on('packs')->onDelete('restrict');
             $table->timestamps();
         });
     }

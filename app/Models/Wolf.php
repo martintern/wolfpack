@@ -23,6 +23,6 @@ class Wolf extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'gender', 'birthdate', 'location'
+        'name', 'gender', 'birthdate', 'location', 'pack_id'
     ];
 }
