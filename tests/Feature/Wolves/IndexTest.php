@@ -1,14 +1,13 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Wolves;
 
-use App\Models\User;
 use App\Models\Wolf;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class WolvesTest extends TestCase
+class IndexTest extends TestCase
 {
     use RefreshDatabase;
 
@@ -25,11 +24,9 @@ class WolvesTest extends TestCase
     /** @test **/
     public function itIncludesBasicInformation()
     {
-        $this->withoutExceptionHandling();
-
         factory(Wolf::class)->create([
             'name' => 'Martin',
-            'gender' => 'male',//TODO: enum?
+            'gender' => 'male',
             'birthdate' => '1978-02-10'
         ]);
 
@@ -41,10 +38,5 @@ class WolvesTest extends TestCase
                 'gender' => 'male',
                 'birthdate' => '1978-02-10'
             ]);
-    }
-
-    private function user(): User
-    {
-        return factory(User::class)->make();
     }
 }

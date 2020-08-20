@@ -13,4 +13,10 @@ class WolvesController extends Controller
     {
         return Wolf::all();
     }
+
+    //TODO: validation
+    public function store(Request $request): Wolf
+    {
+        return Wolf::create($request->input());
+    }
 }
