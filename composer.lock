@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b09ab549a653edd229d37c2b2b53f01",
+    "content-hash": "75e680ae21accb51fd2aefb6d75e251c",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1116,6 +1116,48 @@
             ],
             "description": "Mime-type detection for Flysystem",
             "time": "2020-08-09T10:34:01+00:00"
+        },
+        {
+            "name": "mattkingshott/axiom",
+            "version": "v3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mattkingshott/axiom.git",
+                "reference": "b10b295a1427bfdf4aced21c6b84d936fe57df37"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mattkingshott/axiom/zipball/b10b295a1427bfdf4aced21c6b84d936fe57df37",
+                "reference": "b10b295a1427bfdf4aced21c6b84d936fe57df37",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^5.0",
+                "phpunit/phpunit": "^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Axiom\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "A package that provides a library of reusable Laravel validation rules.",
+            "homepage": "https://github.com/mattkingshott/axiom",
+            "keywords": [
+                "axiom",
+                "laravel",
+                "php",
+                "rules",
+                "validation"
+            ],
+            "time": "2020-05-13T08:04:58+00:00"
         },
         {
             "name": "monolog/monolog",

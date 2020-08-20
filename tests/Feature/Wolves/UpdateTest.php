@@ -17,13 +17,15 @@ class UpdateTest extends TestCase
         factory(Wolf::class)->create([
             'name' => 'Martin',
             'gender' => 'male',
-            'birthdate' => '1978-02-10'
+            'birthdate' => '1978-02-10',
+            'location' => '51.4416, 5.4697'
         ]);
 
         $this->actingAs($this->user())->put('/api/wolves/1', [
             'name' => 'Sandra',
             'gender' => 'female',
-            'birthdate' => '1979-05-29'
+            'birthdate' => '1979-05-29',
+            'location' => '51.9244, 4.4777'
         ])->assertStatus(200);
 
         /**
@@ -34,7 +36,8 @@ class UpdateTest extends TestCase
         $this->assertArraySubset([
             'name' => 'Sandra',
             'gender' => 'female',
-            'birthdate' => '1979-05-29'
+            'birthdate' => '1979-05-29',
+            'location' => '51.9244, 4.4777'
         ], Wolf::first()->getAttributes());
     }
 }

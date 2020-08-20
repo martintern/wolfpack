@@ -3,20 +3,20 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Wolves\StoreRequest;
+use App\Http\Requests\Wolves\UpdateRequest;
 use App\Models\Wolf;
 use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
 
 class WolvesController extends Controller
 {
-    //TODO: filter information
+    //TODO: filter information to only include basic and not location info
     public function index(): Collection
     {
         return Wolf::all();
     }
 
-    //TODO: validation
-    public function store(Request $request): Wolf
+    public function store(StoreRequest $request): Wolf
     {
         return Wolf::create($request->input());
     }
@@ -27,8 +27,7 @@ class WolvesController extends Controller
         return $wolf->delete();
     }
 
-    //TODO: validation
-    public function update(Request $request, Wolf $wolf): bool
+    public function update(UpdateRequest $request, Wolf $wolf): bool
     {
         return $wolf->update($request->input());
     }

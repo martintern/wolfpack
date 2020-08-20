@@ -18,6 +18,7 @@ class CreateWolvesTable extends Migration
             $table->string('name');
             $table->string('gender');
             $table->string('birthdate');
+            $table->point('location');
             $table->timestamps();
         });
     }

@@ -8,7 +8,8 @@ use Faker\Generator as Faker;
 $factory->define(Wolf::class, function (Faker $faker) {
     return [
         'name' => $faker->name,
-        'gender' => $faker->randomElement(['male', 'female', 'other']),//TODO: enum?
-        'birthdate' => $faker->dateTimeThisCentury()
+        'gender' => $faker->randomElement(Wolf::GENDERS),
+        'birthdate' => $faker->dateTimeThisCentury(),
+        'location' => $faker->latitude . ', ' . $faker->longitude
     ];
 });
