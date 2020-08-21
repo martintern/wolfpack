@@ -32,7 +32,6 @@ class IndexTest extends TestCase
 
         $this->actingAs($this->user())->get('/api/wolves')
             ->assertStatus(200)
-            ->assertJsonCount(1)
             ->assertJsonFragment([
                 'name' => 'Martin',
                 'gender' => 'male',

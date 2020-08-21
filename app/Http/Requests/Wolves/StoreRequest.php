@@ -30,7 +30,8 @@ class StoreRequest extends FormRequest
             'name' => 'required|string',
             'gender' => ['required', Rule::in(Wolf::GENDERS)],
             'birthdate' => 'required|date',
-            'location' => ['required', new LocationCoordinates]
+            'location' => ['required', new LocationCoordinates],
+            'pack_id' => 'nullable|exists:packs,id'
         ];
     }
 }

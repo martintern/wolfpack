@@ -20,5 +20,6 @@ class DestroyTest extends TestCase
             ->assertStatus(200);
 
         $this->assertEquals(1, Wolf::count());
+        $this->assertEquals(2, Wolf::first()->id);
     }
 }

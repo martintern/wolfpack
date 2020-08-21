@@ -27,7 +27,23 @@ class PackTest extends TestCase
     }
 
     /** @test **/
-    public function itValidatesPackId()
+    public function itValidatesPackIdOnStore()
+    {
+        $pack = factory(Pack::class)->create(['id' => 1]);
+
+        $this->actingAs($this->user())->post('api/wolves', [
+            'name' => 'Martin',
+            'gender' => 'male',
+            'birthdate' => '1978-02-10',
+            'location' => '51.4416, 5.4697'
+            'pack_id' => 2
+        ])->assertStatus(302);
+
+        $this->assertEquals(0, Wolf::count());
+    }
+
+    /** @test **/
+    public function itValidatesPackIdOnUpdate()
     {
         $wolf = factory(Wolf::class)->create(['id' => 1]);
         $pack = factory(Pack::class)->create(['id' => 1]);
@@ -37,6 +53,7 @@ class PackTest extends TestCase
         ])->assertStatus(302);
 
         $this->assertNull($wolf->pack);
+        $this->assertEquals(0, $pack->wolves()->count());
     }
 
     /** @test */

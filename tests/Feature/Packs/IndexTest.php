@@ -13,7 +13,7 @@ class IndexTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function itListsPacks()
+    public function itListsAllPacks()
     {
         factory(Pack::class)->times(3)->create();
 
@@ -25,7 +25,6 @@ class IndexTest extends TestCase
     /** @test */
     public function itListsEachPacksWolves()
     {
-        $this->withoutExceptionHandling();
         factory(Pack::class)->create(['id' => 1]);
         factory(Wolf::class)->times(2)->create(['pack_id' => 1]);
 

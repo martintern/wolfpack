@@ -19,7 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-//TODO: auth:api
 Route::middleware('auth')->namespace('Api')->group(function () {
     Route::get('/packs', 'PackController@index');
     Route::post('/packs', 'PackController@store');

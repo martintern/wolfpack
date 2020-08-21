@@ -27,10 +27,10 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'sometimes|string',
-            'gender' => ['sometimes', Rule::in(Wolf::GENDERS)],
-            'birthdate' => 'sometimes|date',
-            'location' => ['sometimes', new LocationCoordinates],
+            'name' => 'sometimes|required|string',
+            'gender' => ['sometimes', 'required', Rule::in(Wolf::GENDERS)],
+            'birthdate' => 'sometimes|required|date',
+            'location' => ['sometimes', 'required', new LocationCoordinates],
             'pack_id' => 'sometimes|nullable|exists:packs,id'
         ];
     }

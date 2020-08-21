@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Collection;
 
 class WolfController extends Controller
 {
-    //TODO: filter information to only include basic and not location info
+    //TODO: filter information to only include basic
     public function index(): Collection
     {
         return Wolf::all();
