@@ -35,7 +35,7 @@ class PackTest extends TestCase
             'name' => 'Martin',
             'gender' => 'male',
             'birthdate' => '1978-02-10',
-            'location' => '51.4416, 5.4697'
+            'location' => '51.4416, 5.4697',
             'pack_id' => 2
         ])->assertStatus(302);
 
